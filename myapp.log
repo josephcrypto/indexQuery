@@ -1,0 +1,247 @@
+2021-09-23 16:12:32.931 [INFO] [restartedMain]
+				[cn.coding.com.indexquery.IndexQueryApplication:55] Starting IndexQueryApplication using Java 11.0.11 on joseph-MS-7C08 with PID 120900 (/home/joseph/Desktop/DataB/indexQuery/target/classes started by joseph in /home/joseph/Desktop/DataB/indexQuery)
+2021-09-23 16:12:32.951 [INFO] [restartedMain]
+				[cn.coding.com.indexquery.IndexQueryApplication:659] No active profile set, falling back to default profiles: default
+2021-09-23 16:12:34.784 [INFO] [restartedMain]
+				[org.apache.coyote.http11.Http11NioProtocol:173] Initializing ProtocolHandler ["http-nio-8095"]
+2021-09-23 16:12:34.785 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardService:173] Starting service [Tomcat]
+2021-09-23 16:12:34.785 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardEngine:173] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-23 16:12:34.845 [INFO] [restartedMain]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Initializing Spring embedded WebApplicationContext
+2021-09-23 16:12:35.401 [TRACE] [restartedMain]
+				[org.springframework.data.elasticsearch.client.WIRE:64] [64f63368] Sending request GET / with parameters: 
+2021-09-23 16:12:35.432 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [64f63368] Received raw response: 200 OK
+2021-09-23 16:12:35.443 [WARN] [restartedMain]
+				[org.elasticsearch.client.RestClient:65] request [GET http://localhost:9200/] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 16:12:35.615 [TRACE] [restartedMain]
+				[org.springframework.data.elasticsearch.client.WIRE:64] [2989efb8] Sending request HEAD /logviewer_user?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false with parameters: 
+2021-09-23 16:12:35.617 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [2989efb8] Received raw response: 200 OK
+2021-09-23 16:12:35.617 [WARN] [restartedMain]
+				[org.elasticsearch.client.RestClient:65] request [HEAD http://localhost:9200/logviewer_user?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 16:12:36.317 [INFO] [restartedMain]
+				[org.apache.coyote.http11.Http11NioProtocol:173] Starting ProtocolHandler ["http-nio-8095"]
+2021-09-23 16:12:36.334 [INFO] [restartedMain]
+				[cn.coding.com.indexquery.IndexQueryApplication:61] Started IndexQueryApplication in 4.282 seconds (JVM running for 5.62)
+2021-09-23 16:12:48.171 [INFO] [http-nio-8095-exec-1]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-23 16:12:52.798 [TRACE] [http-nio-8095-exec-4]
+				[org.springframework.data.elasticsearch.client.WIRE:83] [219df573] Sending request POST /logviewer_user/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true with parameters: 
+Request body: {"from":0,"size":1,"query":{"bool":{"must":[{"query_string":{"query":"admin","fields":["user_name^1.0"],"type":"best_fields","default_operator":"and","max_determinized_states":10000,"enable_position_increments":true,"fuzziness":"AUTO","fuzzy_prefix_length":0,"fuzzy_max_expansions":50,"phrase_slop":0,"escape":false,"auto_generate_synonyms_phrase_query":true,"fuzzy_transpositions":true,"boost":1.0}}],"adjust_pure_negative":true,"boost":1.0}},"version":true,"explain":false}
+2021-09-23 16:12:52.837 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [219df573] Received raw response: 200 OK
+2021-09-23 16:12:52.838 [WARN] [http-nio-8095-exec-4]
+				[org.elasticsearch.client.RestClient:65] request [POST http://localhost:9200/logviewer_user/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 16:12:53.214 [INFO] [http-nio-8095-exec-7]
+				[cn.coding.com.indexquery.api.IndexController:37] fetch allIndex page 0 , size 40, q  
+2021-09-23 16:12:53.225 [TRACE] [http-nio-8095-exec-7]
+				[org.springframework.data.elasticsearch.client.WIRE:83] [57480fc8] Sending request POST /bets-*/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true with parameters: 
+Request body: {"from":0,"size":40,"post_filter":{"wildcard":{"message_copy":{"wildcard":"*","boost":1.0}}},"version":true,"explain":false,"sort":[{"@timestamp":{"order":"desc"}}],"track_total_hits":2147483647}
+2021-09-23 16:12:53.246 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [57480fc8] Received raw response: 200 OK
+2021-09-23 16:12:53.247 [WARN] [http-nio-8095-exec-7]
+				[org.elasticsearch.client.RestClient:65] request [POST http://localhost:9200/bets-*/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 16:13:47.073 [INFO] [restartedMain]
+				[cn.coding.com.indexquery.IndexQueryApplication:55] Starting IndexQueryApplication using Java 11.0.11 on joseph-MS-7C08 with PID 121768 (/home/joseph/Desktop/DataB/indexQuery/target/classes started by joseph in /home/joseph/Desktop/DataB/indexQuery)
+2021-09-23 16:13:47.080 [INFO] [restartedMain]
+				[cn.coding.com.indexquery.IndexQueryApplication:659] No active profile set, falling back to default profiles: default
+2021-09-23 16:13:48.253 [INFO] [restartedMain]
+				[org.apache.coyote.http11.Http11NioProtocol:173] Initializing ProtocolHandler ["http-nio-8095"]
+2021-09-23 16:13:48.253 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardService:173] Starting service [Tomcat]
+2021-09-23 16:13:48.253 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardEngine:173] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-23 16:13:48.294 [INFO] [restartedMain]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Initializing Spring embedded WebApplicationContext
+2021-09-23 16:13:48.330 [WARN] [restartedMain]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [D9A9E4A17F8EA442D8BCF89EDDBF548A]
+2021-09-23 16:13:48.636 [TRACE] [restartedMain]
+				[org.springframework.data.elasticsearch.client.WIRE:64] [74d6e924] Sending request GET / with parameters: 
+2021-09-23 16:13:48.654 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [74d6e924] Received raw response: 200 OK
+2021-09-23 16:13:48.710 [WARN] [restartedMain]
+				[org.elasticsearch.client.RestClient:65] request [GET http://localhost:9200/] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 16:13:48.784 [TRACE] [restartedMain]
+				[org.springframework.data.elasticsearch.client.WIRE:64] [175686bd] Sending request HEAD /logviewer_user?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false with parameters: 
+2021-09-23 16:13:48.786 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [175686bd] Received raw response: 200 OK
+2021-09-23 16:13:48.786 [WARN] [restartedMain]
+				[org.elasticsearch.client.RestClient:65] request [HEAD http://localhost:9200/logviewer_user?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 16:13:49.538 [INFO] [restartedMain]
+				[org.apache.coyote.http11.Http11NioProtocol:173] Starting ProtocolHandler ["http-nio-8095"]
+2021-09-23 16:13:49.557 [INFO] [restartedMain]
+				[cn.coding.com.indexquery.IndexQueryApplication:61] Started IndexQueryApplication in 2.943 seconds (JVM running for 3.49)
+2021-09-23 16:13:55.898 [INFO] [http-nio-8095-exec-1]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-23 16:14:00.358 [TRACE] [http-nio-8095-exec-3]
+				[org.springframework.data.elasticsearch.client.WIRE:83] [34afe596] Sending request POST /logviewer_user/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true with parameters: 
+Request body: {"from":0,"size":1,"query":{"bool":{"must":[{"query_string":{"query":"admin","fields":["user_name^1.0"],"type":"best_fields","default_operator":"and","max_determinized_states":10000,"enable_position_increments":true,"fuzziness":"AUTO","fuzzy_prefix_length":0,"fuzzy_max_expansions":50,"phrase_slop":0,"escape":false,"auto_generate_synonyms_phrase_query":true,"fuzzy_transpositions":true,"boost":1.0}}],"adjust_pure_negative":true,"boost":1.0}},"version":true,"explain":false}
+2021-09-23 16:14:00.364 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [34afe596] Received raw response: 200 OK
+2021-09-23 16:14:00.364 [WARN] [http-nio-8095-exec-3]
+				[org.elasticsearch.client.RestClient:65] request [POST http://localhost:9200/logviewer_user/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 16:14:00.725 [INFO] [http-nio-8095-exec-6]
+				[cn.coding.com.indexquery.api.IndexController:37] fetch allIndex page 0 , size 40, q  
+2021-09-23 16:14:00.737 [TRACE] [http-nio-8095-exec-6]
+				[org.springframework.data.elasticsearch.client.WIRE:83] [6db8ba9] Sending request POST /bets-0*/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true with parameters: 
+Request body: {"from":0,"size":40,"post_filter":{"wildcard":{"message_copy":{"wildcard":"*","boost":1.0}}},"version":true,"explain":false,"sort":[{"@timestamp":{"order":"desc"}}],"track_total_hits":2147483647}
+2021-09-23 16:14:00.739 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [6db8ba9] Received raw response: 200 OK
+2021-09-23 16:14:00.740 [WARN] [http-nio-8095-exec-6]
+				[org.elasticsearch.client.RestClient:65] request [POST http://localhost:9200/bets-0*/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 16:14:31.145 [INFO] [restartedMain]
+				[cn.coding.com.indexquery.IndexQueryApplication:55] Starting IndexQueryApplication using Java 11.0.11 on joseph-MS-7C08 with PID 122302 (/home/joseph/Desktop/DataB/indexQuery/target/classes started by joseph in /home/joseph/Desktop/DataB/indexQuery)
+2021-09-23 16:14:31.155 [INFO] [restartedMain]
+				[cn.coding.com.indexquery.IndexQueryApplication:659] No active profile set, falling back to default profiles: default
+2021-09-23 16:14:32.055 [INFO] [restartedMain]
+				[org.apache.coyote.http11.Http11NioProtocol:173] Initializing ProtocolHandler ["http-nio-8095"]
+2021-09-23 16:14:32.056 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardService:173] Starting service [Tomcat]
+2021-09-23 16:14:32.056 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardEngine:173] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-23 16:14:32.089 [INFO] [restartedMain]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Initializing Spring embedded WebApplicationContext
+2021-09-23 16:14:32.118 [WARN] [restartedMain]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [8F85BFAE66DF181345B00BA55DFFAFF7]
+2021-09-23 16:14:32.395 [TRACE] [restartedMain]
+				[org.springframework.data.elasticsearch.client.WIRE:64] [1e2b883f] Sending request GET / with parameters: 
+2021-09-23 16:14:32.418 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [1e2b883f] Received raw response: 200 OK
+2021-09-23 16:14:32.458 [WARN] [restartedMain]
+				[org.elasticsearch.client.RestClient:65] request [GET http://localhost:9200/] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 16:14:32.542 [TRACE] [restartedMain]
+				[org.springframework.data.elasticsearch.client.WIRE:64] [6caf5c67] Sending request HEAD /logviewer_user?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false with parameters: 
+2021-09-23 16:14:32.543 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [6caf5c67] Received raw response: 200 OK
+2021-09-23 16:14:32.544 [WARN] [restartedMain]
+				[org.elasticsearch.client.RestClient:65] request [HEAD http://localhost:9200/logviewer_user?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 16:14:33.105 [INFO] [restartedMain]
+				[org.apache.coyote.http11.Http11NioProtocol:173] Starting ProtocolHandler ["http-nio-8095"]
+2021-09-23 16:14:33.119 [INFO] [restartedMain]
+				[cn.coding.com.indexquery.IndexQueryApplication:61] Started IndexQueryApplication in 2.453 seconds (JVM running for 3.188)
+2021-09-23 16:14:36.961 [INFO] [http-nio-8095-exec-1]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-23 16:14:41.363 [TRACE] [http-nio-8095-exec-3]
+				[org.springframework.data.elasticsearch.client.WIRE:83] [296ec6a4] Sending request POST /logviewer_user/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true with parameters: 
+Request body: {"from":0,"size":1,"query":{"bool":{"must":[{"query_string":{"query":"admin","fields":["user_name^1.0"],"type":"best_fields","default_operator":"and","max_determinized_states":10000,"enable_position_increments":true,"fuzziness":"AUTO","fuzzy_prefix_length":0,"fuzzy_max_expansions":50,"phrase_slop":0,"escape":false,"auto_generate_synonyms_phrase_query":true,"fuzzy_transpositions":true,"boost":1.0}}],"adjust_pure_negative":true,"boost":1.0}},"version":true,"explain":false}
+2021-09-23 16:14:41.366 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [296ec6a4] Received raw response: 200 OK
+2021-09-23 16:14:41.366 [WARN] [http-nio-8095-exec-3]
+				[org.elasticsearch.client.RestClient:65] request [POST http://localhost:9200/logviewer_user/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 16:14:41.705 [INFO] [http-nio-8095-exec-6]
+				[cn.coding.com.indexquery.api.IndexController:37] fetch allIndex page 0 , size 40, q  
+2021-09-23 16:14:41.716 [TRACE] [http-nio-8095-exec-6]
+				[org.springframework.data.elasticsearch.client.WIRE:83] [34b3c4f3] Sending request POST /bets-01/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true with parameters: 
+Request body: {"from":0,"size":40,"post_filter":{"wildcard":{"message_copy":{"wildcard":"*","boost":1.0}}},"version":true,"explain":false,"sort":[{"@timestamp":{"order":"desc"}}],"track_total_hits":2147483647}
+2021-09-23 16:14:41.718 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [34b3c4f3] Received raw response: 200 OK
+2021-09-23 16:14:41.718 [WARN] [http-nio-8095-exec-6]
+				[org.elasticsearch.client.RestClient:65] request [POST http://localhost:9200/bets-01/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 16:15:24.107 [INFO] [http-nio-8095-exec-7]
+				[cn.coding.com.indexquery.api.IndexController:37] fetch allIndex page 0 , size 40, q  
+2021-09-23 16:15:24.109 [TRACE] [http-nio-8095-exec-7]
+				[org.springframework.data.elasticsearch.client.WIRE:83] [697b0d73] Sending request POST /bets-01/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true with parameters: 
+Request body: {"from":0,"size":40,"post_filter":{"wildcard":{"message_copy":{"wildcard":"*","boost":1.0}}},"version":true,"explain":false,"sort":[{"@timestamp":{"order":"desc"}}],"track_total_hits":2147483647}
+2021-09-23 16:15:24.111 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [697b0d73] Received raw response: 200 OK
+2021-09-23 16:15:24.111 [WARN] [http-nio-8095-exec-7]
+				[org.elasticsearch.client.RestClient:65] request [POST http://localhost:9200/bets-01/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 17:13:09.520 [INFO] [restartedMain]
+				[cn.coding.com.indexquery.IndexQueryApplication:55] Starting IndexQueryApplication using Java 11.0.11 on joseph-MS-7C08 with PID 145357 (/home/joseph/Desktop/DataB/indexQuery/target/classes started by joseph in /home/joseph/Desktop/DataB/indexQuery)
+2021-09-23 17:13:09.524 [INFO] [restartedMain]
+				[cn.coding.com.indexquery.IndexQueryApplication:659] No active profile set, falling back to default profiles: default
+2021-09-23 17:13:10.872 [INFO] [restartedMain]
+				[org.apache.coyote.http11.Http11NioProtocol:173] Initializing ProtocolHandler ["http-nio-8095"]
+2021-09-23 17:13:10.872 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardService:173] Starting service [Tomcat]
+2021-09-23 17:13:10.873 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardEngine:173] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-23 17:13:10.920 [INFO] [restartedMain]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Initializing Spring embedded WebApplicationContext
+2021-09-23 17:13:10.961 [WARN] [restartedMain]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [BCC8CA8728CFB70EE5575E77A710BA43]
+2021-09-23 17:13:11.556 [TRACE] [restartedMain]
+				[org.springframework.data.elasticsearch.client.WIRE:64] [564e461e] Sending request GET / with parameters: 
+2021-09-23 17:13:11.575 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [564e461e] Received raw response: 200 OK
+2021-09-23 17:13:11.602 [WARN] [restartedMain]
+				[org.elasticsearch.client.RestClient:65] request [GET http://localhost:9200/] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 17:13:11.815 [TRACE] [restartedMain]
+				[org.springframework.data.elasticsearch.client.WIRE:64] [6a7170c3] Sending request HEAD /logviewer_user?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false with parameters: 
+2021-09-23 17:13:11.819 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [6a7170c3] Received raw response: 200 OK
+2021-09-23 17:13:11.820 [WARN] [restartedMain]
+				[org.elasticsearch.client.RestClient:65] request [HEAD http://localhost:9200/logviewer_user?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 17:13:12.680 [INFO] [restartedMain]
+				[org.apache.coyote.http11.Http11NioProtocol:173] Starting ProtocolHandler ["http-nio-8095"]
+2021-09-23 17:13:12.705 [INFO] [restartedMain]
+				[cn.coding.com.indexquery.IndexQueryApplication:61] Started IndexQueryApplication in 3.871 seconds (JVM running for 5.201)
+2021-09-23 17:13:25.193 [INFO] [http-nio-8095-exec-1]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-23 17:13:29.911 [TRACE] [http-nio-8095-exec-5]
+				[org.springframework.data.elasticsearch.client.WIRE:83] [79f48abe] Sending request POST /logviewer_user/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true with parameters: 
+Request body: {"from":0,"size":1,"query":{"bool":{"must":[{"query_string":{"query":"admin","fields":["user_name^1.0"],"type":"best_fields","default_operator":"and","max_determinized_states":10000,"enable_position_increments":true,"fuzziness":"AUTO","fuzzy_prefix_length":0,"fuzzy_max_expansions":50,"phrase_slop":0,"escape":false,"auto_generate_synonyms_phrase_query":true,"fuzzy_transpositions":true,"boost":1.0}}],"adjust_pure_negative":true,"boost":1.0}},"version":true,"explain":false}
+2021-09-23 17:13:29.936 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [79f48abe] Received raw response: 200 OK
+2021-09-23 17:13:29.937 [WARN] [http-nio-8095-exec-5]
+				[org.elasticsearch.client.RestClient:65] request [POST http://localhost:9200/logviewer_user/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 17:13:30.353 [INFO] [http-nio-8095-exec-8]
+				[cn.coding.com.indexquery.api.IndexController:37] fetch allIndex page 0 , size 40, q  
+2021-09-23 17:13:30.379 [TRACE] [http-nio-8095-exec-8]
+				[org.springframework.data.elasticsearch.client.WIRE:83] [5946d990] Sending request POST /bets-01/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true with parameters: 
+Request body: {"from":0,"size":40,"post_filter":{"wildcard":{"message_copy":{"wildcard":"*","boost":1.0}}},"version":true,"explain":false,"sort":[{"@timestamp":{"order":"desc"}}],"track_total_hits":2147483647}
+2021-09-23 17:13:30.382 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [5946d990] Received raw response: 200 OK
+2021-09-23 17:13:30.383 [WARN] [http-nio-8095-exec-8]
+				[org.elasticsearch.client.RestClient:65] request [POST http://localhost:9200/bets-01/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 17:16:19.241 [INFO] [restartedMain]
+				[cn.coding.com.indexquery.IndexQueryApplication:55] Starting IndexQueryApplication using Java 11.0.11 on joseph-MS-7C08 with PID 146996 (/home/joseph/Desktop/DataB/indexQuery/target/classes started by joseph in /home/joseph/Desktop/DataB/indexQuery)
+2021-09-23 17:16:19.246 [INFO] [restartedMain]
+				[cn.coding.com.indexquery.IndexQueryApplication:659] No active profile set, falling back to default profiles: default
+2021-09-23 17:16:20.375 [INFO] [restartedMain]
+				[org.apache.coyote.http11.Http11NioProtocol:173] Initializing ProtocolHandler ["http-nio-8095"]
+2021-09-23 17:16:20.375 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardService:173] Starting service [Tomcat]
+2021-09-23 17:16:20.376 [INFO] [restartedMain]
+				[org.apache.catalina.core.StandardEngine:173] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-23 17:16:20.419 [INFO] [restartedMain]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Initializing Spring embedded WebApplicationContext
+2021-09-23 17:16:20.457 [WARN] [restartedMain]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [4D732010E9D510EA1891B0D28BE63B58]
+2021-09-23 17:16:21.040 [TRACE] [restartedMain]
+				[org.springframework.data.elasticsearch.client.WIRE:64] [191840a6] Sending request GET / with parameters: 
+2021-09-23 17:16:21.134 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [191840a6] Received raw response: 200 OK
+2021-09-23 17:16:21.141 [WARN] [restartedMain]
+				[org.elasticsearch.client.RestClient:65] request [GET http://localhost:9200/] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 17:16:21.272 [TRACE] [restartedMain]
+				[org.springframework.data.elasticsearch.client.WIRE:64] [65f943be] Sending request HEAD /logviewer_user?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false with parameters: 
+2021-09-23 17:16:21.275 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [65f943be] Received raw response: 200 OK
+2021-09-23 17:16:21.275 [WARN] [restartedMain]
+				[org.elasticsearch.client.RestClient:65] request [HEAD http://localhost:9200/logviewer_user?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 17:16:22.051 [INFO] [restartedMain]
+				[org.apache.coyote.http11.Http11NioProtocol:173] Starting ProtocolHandler ["http-nio-8095"]
+2021-09-23 17:16:22.073 [INFO] [restartedMain]
+				[cn.coding.com.indexquery.IndexQueryApplication:61] Started IndexQueryApplication in 3.291 seconds (JVM running for 3.916)
+2021-09-23 17:16:30.233 [INFO] [http-nio-8095-exec-1]
+				[org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-23 17:16:34.840 [TRACE] [http-nio-8095-exec-3]
+				[org.springframework.data.elasticsearch.client.WIRE:83] [1769ac31] Sending request POST /logviewer_user/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true with parameters: 
+Request body: {"from":0,"size":1,"query":{"bool":{"must":[{"query_string":{"query":"admin","fields":["user_name^1.0"],"type":"best_fields","default_operator":"and","max_determinized_states":10000,"enable_position_increments":true,"fuzziness":"AUTO","fuzzy_prefix_length":0,"fuzzy_max_expansions":50,"phrase_slop":0,"escape":false,"auto_generate_synonyms_phrase_query":true,"fuzzy_transpositions":true,"boost":1.0}}],"adjust_pure_negative":true,"boost":1.0}},"version":true,"explain":false}
+2021-09-23 17:16:34.844 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [1769ac31] Received raw response: 200 OK
+2021-09-23 17:16:34.845 [WARN] [http-nio-8095-exec-3]
+				[org.elasticsearch.client.RestClient:65] request [POST http://localhost:9200/logviewer_user/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]
+2021-09-23 17:16:35.189 [INFO] [http-nio-8095-exec-6]
+				[cn.coding.com.indexquery.controllers.IndexController:37] fetch allIndex page 0 , size 40, q  
+2021-09-23 17:16:35.204 [TRACE] [http-nio-8095-exec-6]
+				[org.springframework.data.elasticsearch.client.WIRE:83] [4cdf0dd] Sending request POST /bets-01/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true with parameters: 
+Request body: {"from":0,"size":40,"post_filter":{"wildcard":{"message_copy":{"wildcard":"*","boost":1.0}}},"version":true,"explain":false,"sort":[{"@timestamp":{"order":"desc"}}],"track_total_hits":2147483647}
+2021-09-23 17:16:35.206 [TRACE] [I/O dispatcher 1]
+				[org.springframework.data.elasticsearch.client.WIRE:97] [4cdf0dd] Received raw response: 200 OK
+2021-09-23 17:16:35.207 [WARN] [http-nio-8095-exec-6]
+				[org.elasticsearch.client.RestClient:65] request [POST http://localhost:9200/bets-01/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=dfs_query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true] returned 1 warnings: [299 Elasticsearch-7.14.1-66b55ebfa59c92c15db3f69a335d500018b3331e "Elasticsearch built-in security features are not enabled. Without authentication, your cluster could be accessible to anyone. See https://www.elastic.co/guide/en/elasticsearch/reference/7.14/security-minimal-setup.html to enable security."]

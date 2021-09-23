@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:inline="javascript">
+        var id = [[${id}]]
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/log-detail?id="+id,
+            success: function (json) {
+                $.each(json, function (key, data) {
+                    if(typeof data === 'object' && data !== null){
+                        $('#detail').append('<span id="'+key+'">'+key+': </span>');
+                        var obJson = JSON.parse(JSON.stringify(data));
+                        $.each(obJson, function (k, d){
+                            $('#'+key).append('<br/><span style="margin-left: 1em">'+k+': </span><span>'+d+'</span>');
+                        })
+                    }else {
+                        $('#detail').append('<span>'+key+': </span><span>'+data+'</span><br/>');
+                    }
+                })
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(textStatus);
+            }
+        })
+    </script>
+</head>
+<body>
+<div id="detail">
+
+</div>
+</body>
+</html>

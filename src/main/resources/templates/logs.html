@@ -1,0 +1,153 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Index Viewer</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        .highlight {
+            background-color: #ff00008a;
+        }
+    </style>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+</head>
+<body id="log-body" style="overflow-y: scroll">
+<div>
+    <h3 id="total-count" style="display: inline">Total</h3>
+    <button id="search_button" type="button" style="margin-bottom: 1rem;float: right;margin-left: 1rem;">Search</button>
+    <input placeholder="Enter words for search" type="text" id="search" style="margin-bottom: 1rem;float: right">
+</div>
+<table id="log-table">
+    <thead>
+        <tr>
+            <th style="text-align: left;">User Id</th>
+            <th style="text-align: left;">Message</th>
+            <th style="text-align: left;">Time</th>
+            <th style="text-align: left">Type</th>
+            <th style="text-align: left">Platform</th>
+            <th style="text-align: left">Ip</th>
+            <th style="text-align: left">Detail</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+</body>
+<script th:inline="javascript">
+    var page = 0; var size = 40;
+    var search = "";
+    var count = 0; total = 0;
+
+    getLogs();
+
+    function getLogs() {
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/logs?&q="+search+"&page="+page+"&size="+size,
+            success: function (json) {
+                count += size;
+                renderTable(json);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(textStatus);
+            }
+        })
+    }
+    function renderTable(logs) {
+        total = logs['total'];
+
+        $('#total-count').text("Total: "+logs['total']);
+
+        logs['datas'].forEach((log) => {
+            var message = JSON.parse(log["message_copy"])
+            var hilight = search? getIndicesOf(search, JSON.stringify(message)):JSON.stringify(message);
+            $('#log-table tbody').append('<tr>' +
+                '<td>'+log["user"].slice(log["user"].indexOf(":") + 1, log["user"].size)+'</td>' +
+                '<td>'+hilight+'</td>' +
+                '<td>'+log["timestamp"]+'</td>' +
+                '<td>'+log["type"]+'</td>' +
+                '<td>'+log["platform"]+'</td>' +
+                '<td>'+log["ip"]+'</td>' +
+                '<td><button onclick="detail(\''+log['id']+'\')" style="\n' +
+                '    width: 55px;' +
+                '    height: 25px;' +
+                '    color: blue;' +
+                '">Detail</button></td>' +
+                '</tr>');
+        })
+    }
+
+    function detail(id) {
+       window.location = "/detail/"+id
+    }
+
+    // Enter search
+    $('#search').keyup(function (e) {
+        if(e.keyCode == 13){
+            searchLogs();
+        }
+    })
+
+    // Click button search
+    $('#search_button').click(function () {
+        searchLogs();
+    })
+
+    function searchLogs(){
+        page = 0; count = 0;
+        search = $('#search').val().trim();
+        // clear table data
+        $('#log-table tbody').empty()
+        //get search logs
+        getLogs();
+    }
+
+    // Scroll event
+    $(document).ready(function () {
+        $(window).on('scroll', function () {
+            var scrollTop = $(this).scrollTop();
+            if(scrollTop + $(this).innerHeight() >= $("#log-body")[0].scrollHeight){
+                page += 1;
+                // get search logs
+                if(count<total) {
+                    getLogs();
+                }
+            }
+        });
+    })
+
+    // Highlight words
+    function getIndicesOf(searchStr, str, caseSensitive) {
+        var searchStrLen = searchStr.length;
+        if (searchStrLen == 0) {
+            return [];
+        }
+        var startIndex = 0, index;
+        if (!caseSensitive) {
+            str = str.toLowerCase();
+            searchStr = searchStr.toLowerCase();
+        }
+        while ((index = str.indexOf(searchStr, startIndex)) > -1) {
+            str = str.substring(0,index) + "<span class='highlight'>" + str.substring(index,index+searchStrLen) + "</span>" + str.substring(index + searchStrLen);
+            startIndex = index + searchStrLen + 31;
+        }
+        return str;
+    }
+</script>
+</html>
